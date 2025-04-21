@@ -59,9 +59,8 @@
         <a href="my-skills.html" target="_blank">View skills</a>
       </div>
       <div class="project-box">
-        <img src="path/to/project-image3.jpg" alt="Project 3">
-        <h3>current project</h3>
-        <a href="https://project-link3.com" target="_blank">View Project</a>
+        <h3>projects table</h3>
+        <a href="indextable.html" target="_blank">View Project</a>
       </div>
     </div>
   </section>
@@ -90,20 +89,26 @@
   </footer>
 
   <script>
-    // Toggle Dark/Light Mode
     const themeToggleButton = document.getElementById('theme-toggle');
     const sunIcon = document.getElementById('sun-icon');
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.body.classList.add(savedTheme);
+      if (savedTheme === 'dark-mode') {
+        sunIcon.textContent = '🌙';
+      }
+    }
 
     themeToggleButton.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
       document.body.classList.toggle('light-mode');
-
-      if (document.body.classList.contains('dark-mode')) {
-        sunIcon.textContent = '🌙';
-      } else {
-        sunIcon.textContent = '🌞';
-      }
+      const currentTheme = document.body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
+      sunIcon.textContent = currentTheme === 'dark-mode' ? '🌙' : '🌞';
+      localStorage.setItem('theme', currentTheme);
     });
+  </script>
+  <script>
 
     // Initialize EmailJS with your Public Key
     (function() {
