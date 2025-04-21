@@ -1,0 +1,75 @@
+1. What are the critical risks in developing SmartHealth, and how would you prioritize them?
+ 
+The development of SmartHealth platforms has several critical risks that must be effectively managed. Data security risks are among the most significant, as health data is highly sensitive and a prime target for cyberattacks. If unauthorised access to this data occurs, it could lead to breaches of privacy and violations of regulatory standards. This is a critical risk, given the potential for legal consequences and reputational damage.  
+ 
+Compliance and regulatory risks are also significant. SmartHealth platforms must follow strict health data regulations such as the General Data Protection Regulation (GDPR) in the EU or the Data Protection Act in the UK. Failure to comply with these regulations can lead to heavy fines and loss of user trust.  
+ 
+Integration risks are another concern. Healthcare systems use many standards and technologies, making it challenging for new platforms to seamlessly integrate with existing infrastructure.  
+ 
+User adoption and engagement pose another critical risk. If the platform is difficult to use or fails to offer value, it is likely to experience low adoption, undermining its viability.  
+ 
+Finally, technical and operational risks, including system failures, software bugs, or errors in system design, must be considered. While these risks can be mitigated through regular testing and updates, they are still significant and need constant attention. 
+ 
+The highest priority should be placed on data security and compliance due to the serious consequences of breaches. User adoption and engagement follow closely behind, as the platform cannot succeed without active users. Integration risks are next, as they can affect the platform’s functionality within existing healthcare systems. Technical and operational risks are important but can be managed more easily through ongoing maintenance and testing. 
+ 
+
+
+
+2. Propose policies and procedures to mitigate data security and compliance risks. Consider aspects such as the CIA Triad as part of this.
+ 
+To mitigate data security and compliance risks, SmartHealth should implement robust policies aligned with the principles of the CIA Triad — confidentiality, integrity, and availability. 
+ 
+To ensure confidentiality, end-to-end encryption must be applied to all data both in transit and at rest, ensuring that sensitive health data cannot be intercepted. Access control mechanisms should be enforced through role-based access, ensuring that only authorised personnel can access certain types of data. Regular security checks and penetration testing will help identify weak spots in the system. 
+ 
+For integrity, data integrity should be maintained through cryptographic techniques such as hashing and digital signatures, which ensure that data has not been tampered with during transmission or storage. Additionally, a clear logging and tracking system should be implemented to record any changes made to data, making it easier to detect and mitigate tampering. 
+ 
+To ensure availability, the platform must be designed with redundancy and fail over mechanisms in place to guarantee high uptime. Backups of critical data should be regularly created and stored securely. An incident response plan should also be developed to ensure that, in the event of an attack or system failure, the platform can be quickly restored to a usable state. 
+
+To address compliance risks, the platform should be regularly updated to remain aligned with evolving privacy laws such as GDPR and the UK's Data Protection Act. A dedicated compliance team should monitor legislative changes, ensuring the platform remains in full compliance with all relevant regulations. Employees should be trained on compliance requirements, and third-party partners should also be required to follow to the same standards. 
+ 
+
+
+
+
+3. How can the team ensure the platform meets user engagement and compatibility goals? What considerations would need to be given to User Experience? How could security requirements impact on this?
+ 
+making sure that SmartHealth meets user engagement and compatibility goals requires a focus on the user experience (UX) and the platform’s ability to function across various devices and operating systems. A user-centred design approach should be at the core of the platform’s development. This means considering the specific needs of different user groups, including patients, healthcare providers, and caregivers, and making the platform meet those needs.  
+ 
+An important part in achieving user engagement is personalisation. Users should be able to customise their dashboards, notification preferences, and other settings, increasing the platform’s relevance to their individual needs. Additionally, clear and simple navigation, easy to use interfaces, and easily accessible information will improve usability, particularly for users who may not be familiar with technology. 
+ 
+Feedback mechanisms are also crucial. The platform should allow users to provide ongoing feedback, enabling developers to continuously improve the user experience. making sure compatibility across different devices is also essential, as users may access the platform through smartphones, tablets, or desktop computers. This cross-device compatibility should be built into the platform’s design from the outset. 
+ 
+When considering UX, accessibility must also be prioritised. This includes designing for users with visual impairments or limited technical expertise, such as older adults, ensuring that the platform is usable by everyone. The platform should incorporate clear visual cues and a simple, intuitive design that avoids overwhelming users with unnecessary features or information. 
+ 
+Security requirements can sometimes conflict with UX goals, particularly when it comes to authentication processes. While multi-factor authentication (MFA) enhances security, it must be designed in such a way that it does not frustrate users. For example, biometric authentication, such as facial recognition or fingerprint scanning, can provide strong security while remaining efficient and user-friendly. Balancing these two priorities is crucial for creating a successful SmartHealth platform. 
+ 
+  
+
+
+
+ 
+4. Given the tight timeline, what iterative development strategies could be employed?
+ 
+Given the limited timeline given, using an agile development approach will be crucial. Agile methodologies, such as Scrum, allow for quick development, where the team works in short sprints to deliver valuable improvements. This approach enables rapid feedback, which can be used to refine features and address issues as they arise.  
+ 
+In this way, a Minimum Viable Product strategy should be used. The MVP should focus on delivering the core functionality of the platform, allowing early user feedback to guide further development. By prioritising the most critical features first, the team can ensure that the platform is functional and meets the basic needs of users, while additional features can be added later on. 
+ 
+Continuous Integration/Continuous Deployment (CI/CD) practices should also be used. These ensure that code is continuously integrated and deployed into production, allowing for quicker turnaround times and more frequent updates. Automated testing and deployment processes help reduce the risk of bugs and errors. 
+ 
+Finally, prioritising will be essential. Using methods like: Must-have, Should-have, Could-have, Won’t-have, the team can ensure that the most important features are developed first, allowing the platform to be usable even in the early stages. This approach ensures that deadlines are met while maintaining flexibility to adjust based on user feedback. 
+
+
+
+
+
+
+5. In case of a data breach, outline a contingency plan and techniques to minimize impact and restore trust.
+ 
+In the event of a data breach, having a well-defined contingency plan is essential to limit the damage and restore trust. The first step is containing the breach — isolating the affected systems to prevent further unauthorised access. Immediately notifying affected users and relevant personnel is critical, as this is a legal requirement under laws such as GDPR.  
+ 
+Once the breach is contained, a thorough assessment should be conducted to determine the extent of the damage. This includes analysing logs, identifying the compromised data, and evaluating how the breach occurred. Based on this, affected users should be offered support, such as credit monitoring services or identity theft protection. 
+ 
+The next priority is damage control. The platform should reset all affected accessed credentials, such as usernames and passwords, and implement enhanced security measures. Communication with users should be clear and easy to understand, explaining the steps taken to address the breach and prevent future incidents.  
+ 
+To regain trust, the platform should conduct an analysis to identify the root causes of the breach and take steps to rectify them. This may include strengthening encryption, improving authentication methods, and enhancing staff training on security protocols. By demonstrating a commitment to securing user data and improving security practices, the platform can gradually rebuild user confidence and trust.
+
