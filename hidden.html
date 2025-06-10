@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>It Sees You</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Base body style */
+    body.hidden {
+      background: #000;
+      color: #ff0000;
+      font-family: monospace, monospace;
+      margin: 0;
+      padding: 2rem;
+      overflow-y: scroll;
+      height: 100vh;
+      animation: pulse 1.5s infinite;
+      position: relative;
+      user-select: none;
+    }
+
+    @keyframes pulse {
+      0%, 100% { background-color: black; }
+      50% { background-color: #111; }
+    }
+
+    /* Flicker/glitch text effect */
+    h1, p {
+      text-shadow:
+        0 0 5px #ff0000,
+        0 0 10px #ff0000,
+        0 0 20px #ff0000,
+        0 0 40px #ff0000;
+      animation: glitch-flicker 2s infinite;
+    }
+    h1, a {
+        text-shadow:
+          0 0 5px #ff0000,
+          0 0 10px #ff0000,
+          0 0 20px #ff0000,
+          0 0 40px #ff0000;
+        animation: glitch-flicker 2s infinite;
+      }
+
+    @keyframes glitch-flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 22%, 24%, 55% {
+        opacity: 0.4;
+      }
+    }
+
+    /* Scanlines overlay */
+    .scanlines {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: repeating-linear-gradient(
+        0deg,
+        rgba(255, 0, 0, 0.03),
+        rgba(255, 0, 0, 0.03) 1px,
+        transparent 2px,
+        transparent 3px
+      );
+      z-index: 9999;
+      mix-blend-mode: screen;
+    }
+
+/* Container section positioned at the bottom */
+.watchers-section {
+    position: fixed;
+    bottom: 2rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Title styling */
+  .watchers-section h2 {
+    margin-bottom: 1rem;
+    color: #ff0000;
+    text-shadow:
+      0 0 5px #ff0000,
+      0 0 10px #ff0000,
+      0 0 20px #ff0000,
+      0 0 40px #ff0000;
+    font-size: 1.5rem;
+  }
+  
+  /* Images in a row */
+  .watchers-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  /* Images styling remains the same (you can keep your existing .watcher-img rules) */
+  
+
+    /* Watcher images styling */
+    .watcher-img {
+      width: 100%;
+      max-width: 400px;
+      filter: drop-shadow(0 0 10px #ff0000);
+      border: 3px solid #ff0000;
+      border-radius: 8px;
+      animation: pulse 1.5s infinite;
+      user-select: none;
+    }
+
+    /* Add some glitch effect on images */
+    .watcher-img:hover {
+      animation: glitch-img 1s infinite;
+      cursor: zoom-in;
+    }
+
+    @keyframes glitch-img {
+      0% {
+        clip-path: inset(0 0 0 0);
+        transform: translate(0);
+        filter: drop-shadow(0 0 10px #ff0000);
+      }
+      20% {
+        clip-path: inset(10% 0 0 0);
+        transform: translate(-5px, 2px);
+        filter: drop-shadow(0 0 20px #ff4444);
+      }
+      40% {
+        clip-path: inset(0 10% 10% 0);
+        transform: translate(5px, -2px);
+        filter: drop-shadow(0 0 25px #ff0000);
+      }
+      60% {
+        clip-path: inset(5% 0 5% 0);
+        transform: translate(-3px, 1px);
+        filter: drop-shadow(0 0 15px #ff2222);
+      }
+      80% {
+        clip-path: inset(0 5% 0 5%);
+        transform: translate(3px, -1px);
+        filter: drop-shadow(0 0 20px #ff4444);
+      }
+      100% {
+        clip-path: inset(0 0 0 0);
+        transform: translate(0);
+        filter: drop-shadow(0 0 10px #ff0000);
+      }
+    }
+
+.footer-credits {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  color: #ff0000;
+  font-family: monospace;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 6rem;
+  text-shadow:
+    0 0 4px #ff0000,
+    0 0 8px #ff0000;
+  border-top: 1px solid #ff0000;
+  animation: glitch-flicker 3s infinite;
+  padding-bottom: 100px;
+}
+
+.credits-container p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.footer-credits a {
+  color: #ff3333;
+  text-decoration: none;
+  text-shadow: 0 0 6px #ff0000;
+}
+.footer-credits a:hover {
+  text-decoration: underline;
+}
+
+    
+  </style>
+</head>
+<body class="hidden">
+  <div class="scanlines"></div>
+  <h1>👁️ IT KNOWS WHO YOU ARE 👁️</h1>
+  <p>The watcher has entered your space.<br>There is no going back.</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p> 
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+  <p>WE ARE ALWAYS WATCHING<</p>
+
+
+
+
+  <h1>THE WATCHERS ARE HERE</h1>
+  <div class="watchers-container">
+    <img src="watcher1.png" alt="Watcher 1" class="watcher-img" />
+    <img src="watcher2.png" alt="Watcher 2" class="watcher-img" />
+    <img src="watcher3.png" alt="Watcher 3" class="watcher-img" />
+  </div>
+
+  <a href="index.html">← Return Home</a>
+
+
+  
+  <!-- Message box -->
+  <div id="message-box">WE ARE ALWAYS WATCHING</div>
+
+  <!-- Audio element for whispers -->
+  <audio id="whispers-audio" src="whispers.mp3" preload="auto"></audio>
+  <!-- Audio element for breathing sound -->
+<audio id="breathing-audio" src="breathing.mp3" preload="auto" loop></audio>
+
+
+<script>
+  const messageBox = document.getElementById('message-box');
+  const whispersAudio = document.getElementById('whispers-audio');
+  const breathingAudio = document.getElementById('breathing-audio');
+
+  function showMessage() {
+    messageBox.style.display = 'block';
+    whispersAudio.currentTime = 0;
+    whispersAudio.play().catch(err => {
+      console.log('Whispers autoplay blocked:', err);
+    });
+
+    setTimeout(() => {
+      messageBox.style.display = 'none';
+    }, 4000);
+  }
+
+  // Start breathing and whispers on first interaction
+  function startAudioExperience() {
+    breathingAudio.volume = 0.3;
+    breathingAudio.play().catch(err => {
+      console.log('Breathing autoplay blocked:', err);
+    });
+
+    showMessage(); // First whisper
+    setInterval(showMessage, 30000); // Every 30 seconds
+  }
+
+  // Wait for user interaction to comply with autoplay policies
+  document.addEventListener('click', startAudioExperience, { once: true });
+</script>
+
+
+
+
+
+
+<footer class="footer-credits">
+  <div class="credits-container">
+    <p><strong>CREATED BY:</strong> Sir-spookiez (Tyler Evetts)</p>
+    <p><em>A descent into the unknown, where the watchers never blink.</em></p>
+    <p>&copy; 2025 Tyler Evetts. All Rights Reserved.</p>
+    <p>Audio, visual, and design elements are the intellectual property of the creator.</p>
+    <p>Unauthorized duplication will be... noticed ️</p>
+  </div>
+</footer>
+
+
+
+</body>
+</html>

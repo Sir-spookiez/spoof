@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Final Gate</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("pw").value.trim().toLowerCase();
+      if (input === "threshold") {
+        window.location.href = "hidden.html";
+      } else {
+        alert("Access Denied");
+      }
+    }
+  </script>
+</head>
+<body class="gate">
+  <div class="scanlines"></div>
+  <h1>THE FINAL GATE</h1>
+  <p>I mark the line where shadows creep,
+    Where silence sighs and secrets sleep.
+    Beyond me lies what none have told,
+    A whispered chill, a grip ice-cold.
+    Step through my frame, you won’t return—
+    Or if you do, you'll never learn.
+    I’m not a lock, yet guard I must.
+    I feed on fear, on hope, on trust.
+    What am I?</p>
+    <p>.</p>
+    <p>.</p>
+    <p id="hint" class="hint" style="opacity: 0; transition: opacity 2s;">
+      // it's hidden before the bridge of the worlds some call it a door, some call it a gate but you always have to cross the ṱ̴̨̢̢̢̧̧̡̨̡̧̨̧̢̨̧̢̨̡̡̡̨̧̡̡̢̛̛̛͎͈̮̭̯̰͖͎̱̬̹̦͔̠͚͈̞̝̮̼̞͉̱͈̹̘̠̝̬̠̯̣̰̫̗̗̹̤̲̬̜̙̗͉̻̪̳͍̬̩̦̞̰̻͔̩̟̼̩̩͈͚͍̖̫̜̯̙͚̯̩̰̖͖͔̖͔̹͙̲͙̬̮͚̣͔̞̜̖̯͚͖̪̺̟̙̱̯̺͎͇̦͍̩̻̳͎̩̝̫̯͎͓̲̪̟̣͍̮̺̖̯͔̼̙͚̺̲̺̳̦̘̣͎͓̞̣̤̗̝̘̘̻̹̻̗̟͕̘͙̫̝̰̮͚͙̜͓̦͙͎͉̣̼̭̫͎͚͍̬̳͓̯̟̖͎̝̱̬̬̯̮͚̲͎̫͎͎̲̲̮̣̣̠̣̫̣̻̜̥͓̠̞̮͍͉̙͓̜̯͕̈́̅̓̏̔͆͛̈́̅̆̊̿͌̓͋̎̔̈́̂̿͆͂͂̽̑͊̉̈́͛̎̋̀̑̾́̔̓͛̊̋̈́͆̍̏͒̃̎̾̾̎̿͑̒͒̑͆̒̂̈́̐̾͛́̽̔̌̈́̆͑̑̓̄̆̃̂̾̅̆̏̂̀́̀̃̊̊̓̓̀̒̅̍̋̏͂͊͋̂̀͒̎̉̽̈̉̈̂͑̀͐͗͛̃̈́̅̀̌̍̊͗́̍̌̑̀͗͌͛̕͘͜͜͜͜͜͝͝͝͠͠͝͝͝͝ͅͅḩ̸̧̧̢̢̧̨̢̢̨̡̡̢̨̧̧̡̧̨̢̡̨̡̧̛̛̛̛̛̛͈̩̳͖̠̭̰̱̻͙͖̞̰̲͚̝̘͙͙̬̮̗͔͔̫̙̼͖̠͉̤͔̜͇̬̘̣̲͚̻̳̳͉͇̟̬̫̖̱̰̫͓͍̟̲̹̫̮̺͍̼̯̼͔̣̪͇̼͖̩̦̤̤͚̖͇͇͖̱̣͍͎͓̳̰̠̱̟̬̦̹̪͓̲̺̩̫̖̹̞͔͖̱̱̱̲͕̣̦̖̗̣̯̹̤͈̳̫͕͖͙̘̬̬̤̗͖̜̥̻̠̣̭̬̝͓͉̼͙̤̠̻͚͙̣͇͔͇͉̻͈̼͓̭͍̦̳̠̟̟̲͔͇̺͎͖̝͕̝̻͇̹̺͖͉͖̞̖̭̟̗̙̲̘̗̯̫̘̠̱͉̤͔̰̬̠̲̘̳̤͕̪̝̱̙̣̺͇̰̫̳̠͔͎̮͙̟̘̣̟̞͐̾̃̓͒̑̆͌͋̎͒̓́̋̈́̀̆̎͗̽̓̏̆̿̓̉̇̀͋͊̿̉̽́͒̑̾͛͂̄̂̋̓̅͌̓̉̋͆̌̔̿̎́͑̓͗͗͐́̄̽́̽́͐̇͆̓̀̍̿͛̈́̈́̓̎͑̀́͒̿́̿̑̂̆̋̋̐̒͒̄̊̀̊̑͆͑̾̈̀̈́̐̽͋̋̾͌̔͗̋͆̏̈̏̇̐̑̀̒́̿̂̈́̈́̋͗̀̆̔́́̔̋̃̆͌̈̑́̐͑̂́̑̔͛̔̓͛̈́̔̃̕̕͘̚̕̚̕̚̕̚̕͜͜͜͜͜͜͜͜͝͝͠͠͠͝͝͝͝͝͠͝͝ͅͅͅͅͅr̸̡̨̢̡̡̢̧̨̡̨̡̢̢̡̧̨̢̧̢̡̧̡̢̧̧̡̨̛̛̛̞̤͈̹̳͙̜̻͕̖̺̲͈̯͈̟̭͇̖̠̟͚͙̰͉̞̤͔̳̠̼̭͓̬̲͇̫͍̝̝̪̺̰̤̥̙̱̺͉̗̟̻̙̙̦̟̯̦̬͚̟̪͖̯̳͖͙̯̞̺͙͎͉̠͖̹̲̼̣̳̱̠̻͍͚̗͎͇̟̝̭̯͙̪̳̙͎̭̟̩̻͎͚̼̪͎̻̼͍͇̭̮̱̟͖͎̭̙̮͕̘͉͕̖͙̪͙͔͈͓̱̪̬̖͉̰̭͉̥̲̻̣̣̞͇̺͚̳͖͕̦̳̪͎̥̫̣̜̯̘͈̥̙̲͖͔͈͇͓̭͎̫̣͉̙͇̳͚̟̻̠̯̪̫͙̖̲͇̺̲͔̩͚͓̪̠̳̦̬̰̘̳̗̥̣̫͎̱̠̪̬̮̺͖̥͚̣̖̖̱̝̰̜̤̩̯͔̹̥̦̩̭͚̗͎͚͕̠͕͔͚̪̞̯͙̟͕̮͇͍̫͚̤̭̰̿͐̆͋͌̈́̓̈́̌̆̓̔̐͗͂̓̈́̅̂̈͋́̓͛̓͋̐̓́̊͂̆̀̎̈́͂̂̊͂̓͗̽̋͐̐͛̉̎̍̀͗̍̀̔̓͛͌̊̑͂̆͗̈́͒̆̆̀̓̒̏͊̾͌̾̈͒̈́́̉̿̏͋̔̽̊͆͂̎̑͗͆̄̉͋̂̌̈́̑͗̚͘͘̚̚̕̕̕͘͘̕͘͜͜͜͜͜͜͜͜͜͝͝͠͝͠͝ͅͅͅͅę̴̡̢̨̡̧̢̢̢̡̛̫̹̭͕̘̹͇͓̤̥̪̺͔̺͉̠̬̪̤͍̠̺̹̩̻̘͇̼̺͍̪̤̼͚͎̱̘̭̻͉̼͖̭͓͙͕̲̞̟̦̠̤͇͖̙͎̠̱̳̬̘͙̱͓͈͈͖̥̝͙̗̗͚̫̱̖̝̘̮̱̫̠̘̱̲̣̞̰͕̤̖̩̦̬̭̥̲̬̲͚̜͉̭̱̺̼̫̣̋̽̐͂̔͂͒͊̄͆̆̓͗̑̊̍̀̽̆̆̆̓͆̔̀͌͑́̒͗̃̔͆̈́͌̆̿̅̋̒̌̓̉̏̊̔̓̈́̀͌̅̒͂̅̎̀̊͐͑̄̽̋̏̄͐͘̚͘̚͘̚̚͘̚̕͜͜͜͠͝͠͝͝ͅş̵̢̢̡̧̡̨̢̢̡̨̨̢̢̢̨̨̛̛̛̛̛̛̥̮̩̣͚̥̭͍̜̞̭̱͔͕̬̜̠̣̼̘̻͈͔̠͓̯̮̥͕̫̖̙̞͕̺̦̪̰̗͎̝͚̦̯̥̲̱̭̞͈̦̼̩̮̬̖͕͕̱̹̲̖̖͎̮̲̮̼͍̯͇̠̳͉̰̰̫̲̝͎̖̹̼̯̪̳̹͙̗̤̜͔̥͉̭̩̘̪̘̘̺̻̰̺̗̣̼͕̣̬̖̮͙͈̭̹̦̪̠̺̱͍̠̜̺͈͓̺̣̩͙͉̫̜̥͓̜͚̭͓͈̭̤͚̝̟̭͇͍̙̣̼͇̞̫̗̥̲̪͍̭̺̮̭͓̼̳͓̹̟̟̭̖̼̻͍̠̼̼͓̺̳̦̹̜̳͖̮̝̟̣̺́́̉́͆̂̍̃̓̍̇͛̌̄͋͒̌͒̿́͛̃̉̑͌̈́̄̒̒̂͒͌́̒̀͋̓͒͂̀̔̈́͆̏͒̀̈́͐̓̈̏̀̃̽͊̌̿̑̃̏͂̅̓̄͋͛̉͆͋̾̉̈́̃̽̿̀̅̈̑̒̍̔̇͛̍̈́̈̉̈́̃͐͑̇̎̑̊͑̂̈́́̽̀̏̏͌̈́̌͗̀̈́͒͋̀͌̅̿̀̿̋́̈̾͆̀̌̍̈́͘͘̚͘̕͘͘̕̚̚͘̕͘̚͜͜͜͜͝͝͝͝͠͝͝͝͝͝͝ͅͅͅͅͅͅͅͅẖ̷̢̧̧̧̡̨̨̧̡̢̨̨̡̧̡̧̢̡̢̢̧̢̧̧̡̡̛̼͔̱̫͉̠̘̜̣̙̪̺͈͖̣̝̙͎̘̟̳̣̗̫͚̳̬̺̞̼̘͖̣̗̺͚͈̗̥̭̥͔̻̗̙͉̖͔̹̫͔͕̜̭̤͔̙͇̙̮̤̩͕͈̣̬̻̹̦̺̱͈̟͙̙͙͖͖͎̤͎̝̱͖̯̞̰͇̼̜̟̖̹̺̼̰͍͍͎̹̳͍̹̼͖̳̫͓̜̮̲̼̖̪̘̦͍̮̩̻͉̮̬̲̪̝̘͍͈̰̺̤̯̤͇̭͖̻̼̝̞̜̝͙̰̜̻̣̖͓̱̟̩̰̞̠͕͙͖̭̞͚͕̠͇̖̬̯͇̮̯͎̻̤̱͚͇͉͈̤̱̙͚̜̞̞̘̩̗̠̥̠̲̗̰͍̠̰̰̱̭̺͔̼̦̩̳̰͚̞̩̭̺̗̘͉̤͖̘͈̝͖͓̳̲͕̙͙̪͍̙̥̹̝͎̼̤̞͇̤͚͖̹̤͕̰̌͋́͂͐̾͆̈͐̑̇̔̓͗́͌̈́̿̀͐͒̈́̐̒̿̒̈́͋͋̔̂̀̌̄̆̅͛̈́̉̉̓͑̆̂̐́̅̒́̿̑͆̈́̌͋͂̑̌̊͗̈́̇̂̈́̋̅̋͑̐̿͐̾͂̓͑̋̌͊͌̚̚͘͘̚̚͘͜͜͜͜͜͝͝͝͝͝͝͝ͅͅͅͅͅͅͅͅớ̸̛̛̛̬̗̩̩̝̞͉͙̻̗͕̠̭͓͚̥̪̲̗̇̀̐̾̆͑̽̐́̑̈́̉̋̈́̈̀́̔͗̔̅̄́́͐͗͂̎̿́͆̐̓̌̔͌̍̎̈͂̓́̀̃̂͑̏͆̈́͒̈́̾͋͊̈́̔́͌̀̈́̐͆͗͊͐͛̅̇́͛̒̄̓͑̈́͌̓̔̅̏͆͋̎̋̑͒͋͂͐̐͑̋͑͂͂̈̌͂͌͒̒̏͘̕̚͘̚͘͘͘̕͘͝͠͝͝͝͠͠ͅl̴̡̡̢̡̛̮̟̺̭͚̪͍̗̝̥̻͖̖̺̳̲̆̈̊̈́̇́̈́͛̂̎̋̋̀̉̉̌͒̇̈́͋͛̀͗̆͌̋̋̿̂͗͑̋̇̓͒̈́̓̑͒̿̐͋̈̆̈́̈́̉̊͛͒͗̎́̇́̆̉̓̓͆̍̈́́̔̒̑̾͛̉̆̀̒̓͌̂̈́́̐̈́̏͗͛̿́̈́͆̓̈͊̏̇̓̈́̔̂͋̾̒͂͌͂̓̍͗̀̆̈́̄̿̂͛͑̊͒̓̍̕̕̚͘̚͠͝͠͝d̶̢̨̨̢̨̧̨̡̡̡̛̛̛̼̥̩̖͚̩̫̝̗̥͚̪̬͓̱͖̲͕͖͎͔̳̺͎̠̥̜̯̝̞̥͚̺͈̮͔̙̥̪͉̱̪̺͚̻̱̙̩̼͔̤̰̲͙͉̹̮͖͕̩͔̱̫͎̖̰͉̠͔̤̎́͂̋̒̇̈́̊͌̔̓͂͛̓̒̿̀͂̊͆͛̑͒̊͂̀͐̎̆̆́̈́̇́̋́̓̾́͋̎̈́͗͒͐̓͋͐̎͐̓̈́̇̓͗́̓̊̿̔̄͌̾̒̅͐̾̓̉̈̀̈́̈́̉̈́̎̐̈́̑͒̈́͆̊͋̽́́̍͊̆̈́̂̒͆̈́̽̈̇͆̅̒̍̎͊̆̈́̓̄̌̒̀͂̍̐̀̐͐̃̅͗͂̅̅̉̅̔̍̌̏͑̊͑́͗̉͋̀̏̽̑͗͌̀̃͋͒̀͗́̊́̈͂͗͌̇́́̋͛͒̃̿̅̊͂͋̒̍̒͛̚͘̕̕̕̚̚̕͘͘͘̕͜͠͝͠͠͠͝͝͝͠͝͝ͅͅͅ   in order to switch reality...</p>
+
+  <input type="text" id="pw" placeholder="Enter password" />
+  <button onclick="checkPassword()">Submit</button>
+
+  
+  <!-- Message box -->
+  <div id="message-box">WE ARE ALWAYS WATCHING</div>
+
+  <!-- Audio element for whispers -->
+  <audio id="whispers-audio" src="whispers.mp3" preload="auto"></audio>
+  <!-- Audio element for breathing sound -->
+<audio id="breathing-audio" src="breathing.mp3" preload="auto" loop></audio>
+
+<script>
+  const messageBox = document.getElementById('message-box');
+  const whispersAudio = document.getElementById('whispers-audio');
+  const breathingAudio = document.getElementById('breathing-audio');
+
+  function showMessage() {
+    messageBox.style.display = 'block';
+    whispersAudio.currentTime = 0;
+    whispersAudio.play().catch(err => {
+      console.log('Whispers autoplay blocked:', err);
+    });
+
+    setTimeout(() => {
+      messageBox.style.display = 'none';
+    }, 4000);
+  }
+
+  // Start breathing and whispers on first interaction
+  function startAudioExperience() {
+    breathingAudio.volume = 0.3;
+    breathingAudio.play().catch(err => {
+      console.log('Breathing autoplay blocked:', err);
+    });
+
+    showMessage(); // First whisper
+    setInterval(showMessage, 30000); // Every 30 seconds
+  }
+
+  // Wait for user interaction to comply with autoplay policies
+  document.addEventListener('click', startAudioExperience, { once: true });
+
+    // Reveal hint after 90 seconds (90,000ms)
+    setTimeout(() => {
+      const hint = document.getElementById('hint');
+      if (hint) {
+        hint.style.opacity = '1';
+      }
+    }, 90000); // 90 seconds
+</script>
+
+
+
+
+
+
+<footer class="footer-credits">
+  <div class="credits-container">
+    <p><strong>CREATED BY:</strong> Sir-spookiez (Tyler Evetts)</p>
+    <p><em>A descent into the unknown, where the watchers never blink.</em></p>
+    <p>&copy; 2025 Tyler Evetts. All Rights Reserved.</p>
+    <p>Audio, visual, and design elements are the intellectual property of the creator.</p>
+    <p>Unauthorized duplication will be... noticed </p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

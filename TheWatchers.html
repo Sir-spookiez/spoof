@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WE ARE ALWAYS WATCHING</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body.home {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* changed from height: 100vh */
+      background: #000;
+      color: #ff0000;
+      font-family: monospace, monospace;
+      margin: 0;
+      text-align: center;
+      padding: 2rem;
+      overflow-x: hidden; /* changed from overflow: hidden */
+      position: relative;
+    }
+    
+
+    .eye-container {
+      max-width: 600px;
+      width: 90vw;
+      padding-top: 170px;
+    }
+
+    .eye {
+      width: 250px;
+      height: auto;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 10px #ff0000);
+      animation: pulseEye 3s infinite alternate;
+    }
+
+    @keyframes pulseEye {
+      0% { filter: drop-shadow(0 0 10px #ff0000); }
+      100% { filter: drop-shadow(0 0 20px #ff4444); }
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px #ff0000;
+      letter-spacing: 0.2em;
+    }
+
+    a {
+      display: inline-block;
+      font-size: 1.5rem;
+      color: #ff0000;
+      text-decoration: none;
+      margin: 0.5rem 1rem;
+      border: 2px solid #ff0000;
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
+      transition: background-color 0.3s, color 0.3s;
+      cursor: pointer;
+    }
+
+    a:hover {
+      background-color: #ff0000;
+      color: #000;
+      text-decoration: none;
+    }
+
+    /* Modal styles */
+    #message-box {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.9);
+      border: 3px solid #ff0000;
+      color: #ff0000;
+      font-family: monospace;
+      font-size: 2.5rem;
+      padding: 2rem 3rem;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 0 20px #ff0000;
+      display: none;
+      user-select: none;
+      letter-spacing: 0.3em;
+    }
+
+    /* Splash screen */
+    #splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      color: #ff0000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 3000;
+      font-family: monospace;
+      font-size: 2rem;
+      text-align: center;
+      padding: 2rem;
+      user-select: none;
+      cursor: pointer;
+      letter-spacing: 0.1em;
+    }
+
+    .splash-message {
+      max-width: 600px;
+      animation: pulseText 2s infinite alternate;
+    }
+
+    @keyframes pulseText {
+      from { text-shadow: 0 0 5px #ff0000; }
+      to   { text-shadow: 0 0 20px #ff4444; }
+    }
+
+.footer-credits {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  color: #ff0000;
+  font-family: monospace;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 6rem;
+  text-shadow:
+    0 0 4px #ff0000,
+    0 0 8px #ff0000;
+  border-top: 1px solid #ff0000;
+  animation: glitch-flicker 3s infinite;
+  padding-bottom: 100px;
+}
+
+.credits-container p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.footer-credits a {
+  color: #ff3333;
+  text-decoration: none;
+  text-shadow: 0 0 6px #ff0000;
+}
+.footer-credits a:hover {
+  text-decoration: underline;
+}
+
+    
+  </style>
+</head>
+<body class="home">
+
+  <!-- Splash Screen -->
+  <div id="splash-screen">
+    <div class="splash-message"> Please wear headphones for the best experience</div>
+  </div>
+
+  <!-- Main Content (hidden initially) -->
+  <div id="main-content" style="display: none;">
+    <div class="scanlines"></div>
+    <div class="eye-container">
+      <img src="eye.gif" alt="watching eye" class="eye" />
+      <h1>WE ARE ALWAYS WATCHING</h1>
+      <a href="stories.html">→ Read the Files</a><br>
+      <a href="login.html">→ Restricted Area</a>
+    </div>
+
+    <!-- Message box -->
+    <div id="message-box">WE ARE ALWAYS WATCHING</div>
+
+    <!-- Audio element for whispers -->
+    <audio id="whispers-audio" src="whispers.mp3" preload="auto"></audio>
+    <!-- Audio element for breathing sound -->
+    <audio id="breathing-audio" src="breathing.mp3" preload="auto" loop></audio>
+  </div>
+
+  <script>
+    const splash = document.getElementById('splash-screen');
+    const mainContent = document.getElementById('main-content');
+    const messageBox = document.getElementById('message-box');
+    const whispersAudio = document.getElementById('whispers-audio');
+    const breathingAudio = document.getElementById('breathing-audio');
+  
+    function showMessage() {
+      messageBox.style.display = 'block';
+      whispersAudio.currentTime = 0;
+      whispersAudio.play();
+      setTimeout(() => {
+        messageBox.style.display = 'none';
+      }, 4000);
+    }
+  
+    function initExperience() {
+      splash.style.display = 'none';
+      mainContent.style.display = 'block';
+      localStorage.setItem('splashSeen', 'true');
+  
+      // Start both audios only after user click
+      breathingAudio.volume = 0.3;
+      breathingAudio.play().catch(() => {
+        console.log('Autoplay blocked - user interaction may be required');
+      });
+  
+      whispersAudio.volume = 1.0;
+  
+      showMessage();
+      setInterval(showMessage, 30000);
+    }
+  
+    // If splash already seen, skip it and show main content with audio
+    if (localStorage.getItem('splashSeen')) {
+      splash.style.display = 'none';
+      mainContent.style.display = 'block';
+  
+      breathingAudio.volume = 0.3;
+      breathingAudio.play().catch(() => {
+        console.log('Autoplay blocked - user interaction may be required');
+      });
+  
+      showMessage();
+      setInterval(showMessage, 30000);
+    } else {
+      splash.addEventListener('click', initExperience);
+    }
+  </script>
+  
+  
+
+
+  <footer class="footer-credits">
+    <div class="credits-container">
+      <p><strong>CREATED BY:</strong> Sir-spookiez (Tyler Evetts)</p>
+      <p><em>A descent into the unknown, where the watchers never blink.</em></p>
+      <p>&copy; 2025 Tyler Evetts. All Rights Reserved.</p>
+      <p>Audio, visual, and design elements are the intellectual property of the creator.</p>
+      <p>Unauthorized duplication will be... noticed </p>
+    </div>
+  </footer>
+  
+</body>
+</html>

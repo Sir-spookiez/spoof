@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Watcher Files</title>
+  <style>
+    body.stories {
+      background: #000;
+      color: #ff4444;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 2em;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.5;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1em;
+      text-shadow: 0 0 10px #ff0000;
+    }
+    .scanlines {
+      pointer-events: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        180deg,
+        rgba(255,0,0,0.05) 0,
+        rgba(255,0,0,0.05) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      mix-blend-mode: overlay;
+      z-index: 9999;
+      animation: scanlineMove 5s linear infinite;
+    }
+    @keyframes scanlineMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 100%; }
+    }
+
+    .glitch {
+      position: relative;
+      color: red;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1em;
+      animation: flicker 2s infinite;
+    }
+  
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      overflow: hidden;
+      color: red;
+      z-index: -1;
+    }
+  
+    .glitch::before {
+      animation: glitchTop 2s infinite linear alternate-reverse;
+      color: #ff4d4d;
+      clip-path: inset(0 0 50% 0);
+    }
+  
+    .glitch::after {
+      animation: glitchBottom 2s infinite linear alternate-reverse;
+      color: #ff0000;
+      clip-path: inset(50% 0 0 0);
+    }
+  
+    @keyframes glitchTop {
+      0% {
+        transform: translate(0, 0);
+      }
+      20% {
+        transform: translate(-2px, -2px);
+      }
+      40% {
+        transform: translate(-2px, 2px);
+      }
+      60% {
+        transform: translate(2px, -2px);
+      }
+      80% {
+        transform: translate(2px, 2px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+  
+    @keyframes glitchBottom {
+      0% {
+        transform: translate(0, 0);
+      }
+      20% {
+        transform: translate(2px, 2px);
+      }
+      40% {
+        transform: translate(2px, -2px);
+      }
+      60% {
+        transform: translate(-2px, 2px);
+      }
+      80% {
+        transform: translate(-2px, -2px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+  
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+      52% { opacity: 0.5; }
+      53% { opacity: 1; }
+    }
+    
+    
+    
+    .doc {
+      background: #111;
+      border: 1px solid #330000;
+      padding: 1em 1.5em;
+      margin-bottom: 2em;
+      box-shadow: 0 0 15px #330000;
+      border-radius: 6px;
+    }
+    h2 {
+      margin-top: 0;
+      color: #ff6666;
+      text-shadow: 0 0 4px #ff0000;
+    }
+    .redacted {
+      background-color: black;
+      color: black;
+      border-radius: 3px;
+      padding: 0 4px;
+      cursor: help;
+      position: relative;
+      user-select: none;
+    }
+    .redacted:hover::after {
+      content: "REDACTED";
+      color: #ff4444;
+      position: absolute;
+      top: 120%;
+      left: 0;
+      background: black;
+      padding: 2px 6px;
+      white-space: nowrap;
+      font-size: 0.8em;
+      border: 1px solid #ff4444;
+      border-radius: 3px;
+      z-index: 10;
+    }
+    a {
+      color: #ff4444;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      margin-top: 3em;
+      text-align: center;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+.footer-credits {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  color: #ff0000;
+  font-family: monospace;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 6rem;
+  text-shadow:
+    0 0 4px #ff0000,
+    0 0 8px #ff0000;
+  border-top: 1px solid #ff0000;
+  animation: glitch-flicker 3s infinite;
+  padding-bottom: 100px;
+}
+
+.credits-container p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.footer-credits a {
+  color: #ff3333;
+  text-decoration: none;
+  text-shadow: 0 0 6px #ff0000;
+}
+.footer-credits a:hover {
+  text-decoration: underline;
+}
+
+    
+  </style>
+</head>
+<body class="stories">
+  <div class="scanlines"></div>
+  <h1>ARCHIVED OBSERVATIONS</h1>
+
+  <!-- 30 watcher files -->
+  
+  <section class="doc">
+    <h2>File #342-A: Origins</h2>
+    <p>
+      The entity known as <span class="redacted">The Watcher</span> began appearing in analog security feeds during ██/██/1978. 
+      Victims described feelings of being watched, followed by progressive visual degradation.
+    </p>
+    <p>
+      Later sightings confirmed ███████ anomalies matching prior transmissions from <span class="redacted">Site-█</span>.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #487-B: The Signals</h2>
+    <p>
+      Unusual electromagnetic pulses were detected emanating from the ██████ forest on ██/██/1984.  
+      These pulses caused intermittent blackouts and triggered intense paranoia among nearby residents.
+    </p>
+    <p>
+      Audio recovered from the area contains faint whispers, believed to be attempts at communication by <span class="redacted">The Watcher</span>.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #512-C: Disappearances</h2>
+    <p>
+      Between ██/██/1991 and ██/██/1993, a series of unexplained disappearances were reported within a 10 km radius of <span class="redacted">Site-██</span>.  
+      Witnesses claim to have seen shadowy figures and felt overwhelming dread prior to vanishing.
+    </p>
+    <p>
+      No bodies or evidence were ever recovered, though local authorities noted a sharp increase in missing persons reports during this period.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #623-D: Visual Degradation</h2>
+    <p>
+      Victims exposed to prolonged surveillance by <span class="redacted">The Watcher</span> report severe visual disturbances, including blurred vision and hallucinations.  
+      These symptoms appear irreversible after 72 hours of continuous observation.
+    </p>
+    <p>
+      Medical records remain classified under <span class="redacted">Code ████</span>, with no official explanation for the cause or treatment.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #701-E: Digital Interference</h2>
+    <p>
+      Multiple reports indicate the presence of anomalous data streams corrupting digital recordings near <span class="redacted">Sector 9</span>.  
+      Devices display static, redacted images, or play unidentifiable audio fragments.
+    </p>
+    <p>
+      Attempts to decrypt transmissions resulted in personal data leaks and severe disorientation.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #754-F: The Red Eye</h2>
+    <p>
+      Eye witness accounts describe a glowing red orb observed hovering silently at night in ████████ woods.  
+      The orb appears to track movement and disappears when approached.
+    </p>
+    <p>
+      Incident logs link the orb to a spike in missing persons and equipment malfunctions.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #812-G: Signal Loss</h2>
+    <p>
+      Surveillance cameras near <span class="redacted">Zone 17</span> experience random shutdowns coinciding with a deep, low-frequency hum audible only within 500 meters.
+    </p>
+    <p>
+      Victims within this range report nausea, headaches, and paranoia.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #856-H: Forgotten Time</h2>
+    <p>
+      Witnesses recall gaps in memory after encounters with <span class="redacted">The Watcher</span>.  
+      Time appears to distort, with clocks stopping or jumping irregularly.
+    </p>
+    <p>
+      Psychological evaluations remain inconclusive.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #902-I: Static Visions</h2>
+    <p>
+      Victims describe visions composed entirely of static and shifting shadows, accompanied by unidentifiable whispering voices.  
+      These episodes are always preceded by electrical interference.
+    </p>
+    <p>
+      No known cure or intervention has proven effective.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #958-J: The Redaction Protocol</h2>
+    <p>
+      Government documents relating to <span class="redacted">The Watcher</span> are heavily redacted.  
+      Whistleblower testimonies suggest an active effort to conceal the entity’s true nature and origin.
+    </p>
+    <p>
+      Release of information is strictly forbidden under <span class="redacted">Executive Order ████</span>.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1003-K: The Vanishing Point</h2>
+    <p>
+      Certain coordinates, known as <span class="redacted">Point X</span>, have been associated with sudden disappearances of electronic devices and humans alike.
+    </p>
+    <p>
+      No signals or physical evidence have been recorded past this boundary.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1047-L: Whispering Static</h2>
+    <p>
+      Audio recovered from abandoned surveillance systems contains unintelligible whispers layered beneath static.  
+      Linguistic analysis has failed to decode the content.
+    </p>
+    <p>
+      Exposure to the audio correlates with increased paranoia and psychosis.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1099-M: Red Glow</h2>
+    <p>
+      A persistent red glow has been observed inside ██████ buildings following power failures.  
+      Attempts to locate the source resulted in sensory overload in observers.
+    </p>
+    <p>
+      Photographic evidence is corrupted or missing.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1144-N: The Silent Watcher</h2>
+    <p>
+      Reports describe an invisible presence that causes electronic devices to fail silently.  
+      Victims feel intense unease but report no direct contact.
+    </p>
+    <p>
+      Monitoring equipment resumes normal function after disappearance.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1190-O: The Breach</h2>
+    <p>
+      Security logs indicate unauthorized breaches at <span class="redacted">Facility ███</span> coinciding with unexplained power fluctuations.
+    </p>
+    <p>
+      No intruders were ever identified despite clear system alarms.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1234-P: Hallucinations</h2>
+    <p>
+      Victims exposed to persistent surveillance by <span class="redacted">The Watcher</span> report vivid hallucinations of red eyes and static shadows.
+    </p>
+    <p>
+      Treatment attempts with sedation prove ineffective.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1278-Q: The Last Transmission</h2>
+    <p>
+      A final transmission from <span class="redacted">Site-██</span> contained only a series of repeating tones and a distorted voice repeating the phrase “You cannot hide.”
+    </p>
+    <p>
+      Signal lost shortly after without explanation.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1322-R: Blackout Events</h2>
+    <p>
+      Entire sectors experienced simultaneous blackouts followed by a spike in missing equipment and personnel.
+    </p>
+    <p>
+      Security footage shows a shadow moving swiftly before power is restored.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1367-S: Distorted Memories</h2>
+    <p>
+      Witnesses recall events involving <span class="redacted">The Watcher</span> differently, often with conflicting timelines and altered details.
+    </p>
+    <p>
+      No psychological explanation has been verified.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1410-T: The Eye Contact</h2>
+    <p>
+      Direct eye contact with <span class="redacted">The Watcher</span> reportedly induces temporary paralysis and intense fear.
+    </p>
+    <p>
+      Survivors describe an overwhelming sensation of being catalogued.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1455-U: Signal Echoes</h2>
+    <p>
+      Echoes of old surveillance audio have been detected on modern communication devices with no identifiable source.
+    </p>
+    <p>
+      Some users report hearing their own names whispered among the static.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1500-V: The Redacted Path</h2>
+    <p>
+      Maps showing movements of <span class="redacted">The Watcher</span> are incomplete, with large sections redacted or erased.
+    </p>
+    <p>
+      Attempts to retrace steps have led to dead ends and disorientation.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1543-W: Night Vision Anomalies</h2>
+    <p>
+      Night vision footage shows anomalies resembling red eyes that appear and disappear abruptly.
+    </p>
+    <p>
+      Footage often corrupts after these events.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1587-X: Digital Distortions</h2>
+    <p>
+      Computers near <span class="redacted">The Watcher</span> experience sudden crashes and display corrupted files.
+    </p>
+    <p>
+      Data recovery efforts only reveal fragments of unknown origin.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1630-Y: The Hidden Frequency</h2>
+    <p>
+      A previously undetected frequency has been recorded, believed to be a form of communication by <span class="redacted">The Watcher</span>.
+    </p>
+    <p>
+      Specialized equipment is required to detect and decode this frequency.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1675-Z: The Watcher’s Mark</h2>
+    <p>
+      Some victims display a faint, circular mark on their skin following prolonged observation.
+    </p>
+    <p>
+      The mark is accompanied by increased paranoia and insomnia.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1720-AA: The Silent Broadcast</h2>
+    <p>
+      A broadcast with no audio or video content has been transmitted to several devices, causing confusion and fear.
+    </p>
+    <p>
+      Attempts to trace the origin have failed.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1763-BB: The Red Eye Network</h2>
+    <p>
+      A network of red eye sightings across multiple continents suggest a coordinated presence.
+    </p>
+    <p>
+      International agencies have restricted information dissemination.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1807-CC: The Watcher’s Breath</h2>
+    <p>
+      Victims report hearing labored breathing when in the presence of <span class="redacted">The Watcher</span>.
+    </p>
+    <p>
+      This auditory hallucination precedes episodes of blackout.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1850-DD: The Forgotten Code</h2>
+    <p>
+      An encrypted code discovered in redacted files is suspected to contain instructions or warnings about <span class="redacted">The Watcher</span>.
+    </p>
+    <p>
+      Decryption efforts have stalled indefinitely.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1893-EE: The Shadow Network</h2>
+    <p>
+      An underground network of surveillance operatives dedicated to tracking <span class="redacted">The Watcher</span> operates in complete secrecy.
+    </p>
+    <p>
+      Details remain classified under <span class="redacted">Protocol ████</span>.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1937-FF: The Redacted Experiment</h2>
+    <p>
+      Experimental attempts to replicate the effects of <span class="redacted">The Watcher</span> on test subjects have resulted in severe psychological trauma.
+    </p>
+    <p>
+      Test data remains hidden behind multiple layers of redaction.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #1980-GG: The Last Watch</h2>
+    <p>
+      The final known observation of <span class="redacted">The Watcher</span> in a public setting involved unexplained power surges and mass panic.
+    </p>
+    <p>
+      Witnesses were evacuated without incident but remain deeply affected.
+    </p>
+    <div class="glitch" data-text="ACCESS_KEY: 1980-GG">
+      A̶̵̷̧̛̗͚͈̼͕͖̮̩̮̖͚͍̟̜͈̘͌̈̈͐̂̔ͦ͗̍̈́ͥ̎̑̊ͫ̄͒͜͝͝͝C̸̥̀C̴̜̠̫͂̕͡_̨̛̛͕͉͎̟̱͔̟͖̬ͭ̑͑̂̐ͯ͆́̅͂̇͂͆͗̈́͒̆̋̎̀͆̍̚͘Ȩ̵̴̡̡̨̱̻͔͕̰̦̩͕͇͙̺̯͚͎̹̐̐̈̽ͨ͑ͬ͑ͤͦͩ̀̇̾̚͢͟͟͜͡͡ͅͅS̢̮̘̘͗͢_̸̸̢̹̜̻̙̯̲͚͙̥ͧ̓ͤ̓̀ͦ͑͊̐̍͑̓ͬ͛ͥ͠S̺͔̙̥̞̠ͬ̐̀ Ḱ̴͚̱́͡_̶̸̸̧̢̧͉͉̠̯̼̺̤̺͎̖͎̰̗̣̳̞̾͆̎̑ͤ̌͒̔̒̀ͬ͛̚̕͢͡͞E̸̵̛̛̳̲̣̖̯̙͎̟̥͚͖̟͒́̇͐̓̉̍̾̊̓̎ͧͦ̑͗ͩ̑͢͢͟͜͟Y̯̰͔̠̮̥̾ͭ͑̆_̸̥̺̼̩̗͋͑ͥ͊̃̓̎͛͊ͧ͠:̶̛̤̳̹̬̓ͪ̃ͮͭ͑͟ 1̷͉͎͚͍̰̪̰͈̺ͥ͗ͤ̑ͥ̀̆̿ͩ̓9̶̸̸̷̮͔̟̯̻͍͖̩̗̹̯̠̙̖͍͈͖̝̬̜͇̥ͬͬ̀ͮ̓̑̄̂ͦͧ̃͐̀ͯ̉͛͛̈́̓͘ͅ8̧͔̻̫̪͖̟̜̦͔̈́͛͗̒͌ͨ̄̈ͮͦ͜͟͞͡͞͠͝͠ͅ0̴̶̡̨̛̲̟̜͈̞͍͖͚̤͖̞͉͖̀̌͑̑̽̽̊̇̽̃̔̓͆͌_̖̫̫̇ͮ͊ͩͦͪ͠͡-̸̶̶͓͕̜̯͖̦̬̘̹̞ͩ̈́̑̊ͩ͒̅̋̃̀͒̽͛͑̚͘͢͝͞͡G̷̷̢̢̨̤͚͈̼̖̥͙̳͕̥͔̺̈́͆̅̅ͯ͆́ͫͮ͂̑ͣ̐͑ͯ̂̉ͅG̷̨̥̮̫̥̘̺̱̪̭̙̫̽̒ͪ̾͐͒̄̃ͯͣ̀ͪ̊̿ͫ̒͒͋͢͡...̶̵̷̛͍̟̜͈̘̔ͫ̄͒͝
+    </div>
+  </section>
+  
+  
+
+
+  <section class="doc">
+    <h2>File #2024-HH: The Hidden Archive</h2>
+    <p>
+      A secret archive containing raw footage and reports related to <span class="redacted">The Watcher</span> was discovered beneath <span class="redacted">Site-██</span>.
+    </p>
+    <p>
+      Access to this archive is restricted to level █ clearance only.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #2067-II: The Red Eye Manifestation</h2>
+    <p>
+      The phenomenon known as the <span class="redacted">Red Eye</span> manifests unpredictably, often near critical infrastructure.
+    </p>
+    <p>
+      Attempts to capture it on camera result in image distortion and data loss.
+    </p>
+  </section>
+
+  <section class="doc">
+    <h2>File #2110-JJ: The Watcher’s Shadow</h2>
+    <p>
+      Shadows cast by <span class="redacted">The Watcher</span> have been reported to move independently of any known light source.
+    </p>
+    <p>
+      These shadows instill intense fear and disorientation in witnesses.
+    </p>
+  </section>
+
+  <a href="index.html">← Return Home</a>
+
+
+ 
+  <!-- Message box -->
+  <div id="message-box">WE ARE ALWAYS WATCHING</div>
+
+  <!-- Audio element for whispers -->
+  <audio id="whispers-audio" src="whispers.mp3" preload="auto"></audio>
+  <!-- Audio element for breathing sound -->
+<audio id="breathing-audio" src="breathing.mp3" preload="auto" loop></audio>
+
+
+<script>
+  const messageBox = document.getElementById('message-box');
+  const whispersAudio = document.getElementById('whispers-audio');
+  const breathingAudio = document.getElementById('breathing-audio');
+
+  // Try enabling autoplay for whispers by muting first
+  whispersAudio.muted = true;
+  whispersAudio.play().then(() => {
+    whispersAudio.pause();
+    whispersAudio.currentTime = 0;
+    whispersAudio.muted = false;
+  });
+
+  function showMessage() {
+    messageBox.style.display = 'block';
+    whispersAudio.currentTime = 0;
+    whispersAudio.play();
+  
+    setTimeout(() => {
+      messageBox.style.display = 'none';
+    }, 4000);
+  }
+
+  window.addEventListener('load', () => {
+    breathingAudio.volume = 0.3;
+    breathingAudio.play().catch(() => {
+      console.log('Autoplay blocked - waiting for user interaction');
+    });
+
+    // Try playing whispers immediately on load
+    showMessage();
+  });
+
+  // Play breathing audio on first interaction if autoplay blocked
+  document.addEventListener('click', () => {
+    if (breathingAudio.paused) {
+      breathingAudio.play();
+    }
+  }, { once: true });
+
+  // Repeat whispers every 30 seconds
+  setInterval(showMessage, 30000);
+</script>
+
+<footer class="footer-credits">
+  <div class="credits-container">
+    <p><strong>CREATED BY:</strong> Sir-spookiez (Tyler Evetts)</p>
+    <p><em>A descent into the unknown, where the watchers never blink.</em></p>
+    <p>&copy; 2025 Tyler Evetts. All Rights Reserved.</p>
+    <p>Audio, visual, and design elements are the intellectual property of the creator.</p>
+    <p>Unauthorized duplication will be... noticed</p>
+  </div>
+</footer>
+
+</body>
+</html>

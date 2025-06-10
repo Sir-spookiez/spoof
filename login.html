@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Access Control</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="login">
+  <div class="scanlines"></div>
+  <h1>ACCESS CONTROL SYSTEM</h1>
+
+  <!-- LOGIN FORM -->
+  <form onsubmit="return checkLogin(event)">
+    <label>Username:</label><br>
+    <input type="text" id="login-user" required><br><br>
+    <label>Password:</label><br>
+    <input type="password" id="login-pass" required><br><br>
+    <button type="submit">Proceed</button>
+  </form>
+
+  <!-- ERROR MESSAGE -->
+  <p id="error-msg" style="color:#ff0000; display:none;">ACCESS DENIED</p>
+
+  <!-- Message box -->
+  <div id="message-box">WE ARE ALWAYS WATCHING</div>
+
+  <!-- Audio elements -->
+  <audio id="whispers-audio" src="whispers.mp3" preload="auto"></audio>
+  <audio id="breathing-audio" src="breathing.mp3" preload="auto" loop></audio>
+
+  <script>
+    const messageBox = document.getElementById('message-box');
+    const whispersAudio = document.getElementById('whispers-audio');
+    const breathingAudio = document.getElementById('breathing-audio');
+    const errorMsg = document.getElementById('error-msg');
+  
+    function showMessage() {
+      messageBox.style.display = 'block';
+      whispersAudio.currentTime = 0;
+      whispersAudio.play().catch(err => {
+        console.log('Whispers autoplay blocked:', err);
+      });
+  
+      setTimeout(() => {
+        messageBox.style.display = 'none';
+      }, 4000);
+    }
+  
+    // Start breathing and whispers on first interaction
+    function startAudioExperience() {
+      breathingAudio.volume = 0.3;
+      breathingAudio.play().catch(err => {
+        console.log('Breathing autoplay blocked:', err);
+      });
+  
+      showMessage(); // First whisper
+      setInterval(showMessage, 30000); // Every 30 seconds
+    }
+  
+    // Wait for user interaction to comply with autoplay policies
+    document.addEventListener('click', startAudioExperience, { once: true });
+  
+    // LOGIN VALIDATION FUNCTION  
+      function checkLogin(event) {
+        event.preventDefault(); // Stop form from reloading the page
+      
+        const enteredUser = document.getElementById('login-user').value.trim().toUpperCase();
+        const enteredPass = document.getElementById('login-pass').value.trim().toUpperCase();
+      
+        const correctUser = "THE SILENT WATCHER";
+        const correctPass = "1980-GG"; // make it lowercase
+      
+        if (enteredUser === correctUser && enteredPass === correctPass) {
+          // Redirect to gate.html
+          window.location.href = "gate.html";
+        } else {
+          errorMsg.style.display = 'block';
+          setTimeout(() => {
+            errorMsg.style.display = 'none';
+          }, 3000);
+        }
+      
+        return false;
+      }
+      
+  </script>
+  
+  
+
+  
+
+
+<footer class="footer-credits">
+  <div class="credits-container">
+    <p><strong>CREATED BY:</strong> Sir-spookiez (Tyler Evetts)</p>
+    <p><em>A descent into the unknown, where the watchers never blink.</em></p>
+    <p>&copy; 2025 Tyler Evetts. All Rights Reserved.</p>
+    <p>Audio, visual, and design elements are the intellectual property of the creator.</p>
+    <p>Unauthorized duplication will be... noticed ️</p>
+  </div>
+</footer>
+ 
+
+</body>
+</html>
